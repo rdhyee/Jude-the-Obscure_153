@@ -1,0 +1,30 @@
+_repo: Jude-the-Obscure_153
+creator:
+  author:
+    agent_name: Hardy, Thomas
+    birthdate: 1840
+    deathdate: 1928
+    gutenberg_agent_id: '23'
+    url: http://www.gutenberg.org/2009/agents/23
+    wikipedia: http://en.wikipedia.org/wiki/Thomas_Hardy
+gutenberg_bookshelf: Banned Books from Anne Haight's list
+gutenberg_issued: '1994-08-01'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '153'
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- '!lcsh:Children -- Death -- Fiction'
+- '!lcsh:Adultery -- Fiction'
+- '!lcsh:Didactic fiction'
+- '!lcsh:Love stories'
+- '!lcc:PR'
+- '!lcsh:Stonemasons -- Fiction'
+- '!lcsh:Unmarried couples -- Fiction'
+- '!lcsh:Wessex (England) -- Fiction'
+- '!lcsh:Illegitimate children -- Fiction'
+title: Jude the Obscure
+url: http://www.gutenberg.org/ebooks/153
