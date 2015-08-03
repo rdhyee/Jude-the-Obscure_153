@@ -23,14 +23,14 @@ publisher: Project Gutenberg
 rights: Public domain in the USA.
 rights_url: http://creativecommons.org/about/pdm
 subjects:
-- '!lcsh:Wessex (England) -- Fiction'
-- '!lcsh:Didactic fiction'
-- '!lcsh:Unmarried couples -- Fiction'
-- '!lcsh:Love stories'
-- '!lcc:PR'
-- '!lcsh:Illegitimate children -- Fiction'
-- '!lcsh:Children -- Death -- Fiction'
-- '!lcsh:Adultery -- Fiction'
-- '!lcsh:Stonemasons -- Fiction'
+- '!lcsh: Adultery -- Fiction'
+- '!lcc: PR'
+- '!lcsh: Wessex (England) -- Fiction'
+- '!lcsh: Children -- Death -- Fiction'
+- '!lcsh: Didactic fiction'
+- '!lcsh: Stonemasons -- Fiction'
+- '!lcsh: Illegitimate children -- Fiction'
+- '!lcsh: Love stories'
+- '!lcsh: Unmarried couples -- Fiction'
 title: Jude the Obscure
 url: http://www.gutenberg.org/ebooks/153
