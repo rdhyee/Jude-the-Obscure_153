@@ -1,0 +1,32 @@
+language: ruby
+before_install:
+- gem install asciidoctor tilt
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+- asciidoctor -a toc,version=$VERSION -b xhtml5 -T ./asciidoctor-htmlbook/htmlbook-autogen/
+  -d book book.asciidoc -o book.html
+- git clone https://github.com/gitenberg-dev/HTMLBook
+- xsltproc -stringparam external.assets.list " " ./HTMLBook/htmlbook-xsl/epub.xsl book.html
+- cp ./HTMLBook/stylesheets/epub/epub.css OEBPS
+- cp cover.jpg OEBPS/cover.jpg
+- if test -d "./images"; then mv ./images ./OEBPS/ ;fi
+- zip -rX book.epub mimetype
+- zip -rX book.epub OEBPS/ META-INF/
+- if test -d "OEBPS/images/"; then zip -rX book.epub OEBPS/images/ ;fi 
+- mv book.epub Jude-the-Obscure.epub
+branches:
+  only:
+  - master
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: G7l+fnKH0vQAG0GF1Wy0G3U2NcU5MFzEjdyEVVSh7FiJWglXZA4Ab4hDbVdiQY9qQh2QI0Am4OaE3kAeuq3g+IAJVsJb/AzJPk6wMnEFqh2UUm1DoRF4iFgKNauimugPusXb2dPwbduTrHHC31MUuYt2sepIUdnNCqYVkZTRhP+F7vShCS3oNZNNpK/bjEYvXRBRyN18r+givzqwmjkdXnThc6ewA4/XqDSrXeSmxpd3lXikN9wTRYJGr9Tu5nsVpLiQyGyyxed0u1Q5rKt4/E9bK8GFzsrQwIXtOdt0CE9nVfE1ENftGwGPI+pRBAMJdJ+2NckPMU4OqOwVNeIr6lT+CPBz5gSgnAjDk2q+VWWwk4AgTz/5nOFZi5dssehNHY87fBMCt7RI1X0x3fMMhxhZOmeUFeZrFs1cEth2OcvvdEmkPHXKW0Thr9XpvWDVoC1YeWjinxLm83cNh39dAcn0PK2gnKVP1nfPIfEbKeQcqsbGzZinC6wEJEWtaN6LXEcS7WLtdmPgnIOER8ud4kTolDKbJlbiqxXQ3mMbfPlb4OMd6L20CZeRvYutU+4NgrAYKIUUJxvGMT3Y1DObaXUnVp7XuYpsrqbTemJvznyExhSkiKjuIDjW+A1XAsRJ4s2Zti+V4tgPxK77R3ydZ2pb+e9+HiXLTi9EqbxkT78=
+  file: Jude-the-Obscure.epub
+  "on":
+    repo: GITenberg/Jude-the-Obscure_153
+addons:
+  apt:
+    packages:
+    - xsltproc
